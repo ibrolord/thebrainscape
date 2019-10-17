@@ -1,0 +1,83 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  zonethebrainscapecom:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: thebrainscape.com.
+      HostedZoneConfig:
+        Comment: Mike's website
+  
+  vpc7038fc0a:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 172.31.0.0/16
+      InstanceTenancy: default
+      EnableDnsSupport: 'true'
+      EnableDnsHostnames: 'true'
+  distd34nak86sb33w9cloudfrontnet:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+        - www.thebrainscape.com
+        - thebrainscape.com
+        - cdn.thebrainscape.com
+        Comment: thebrainscape.com CDN
+        Enabled: true
+        DefaultRootObject: index
+        PriceClass: PriceClass_All
+        DefaultCacheBehavior:
+          TargetOriginId: S3-thebrainscape.com
+          ViewerProtocolPolicy: redirect-to-https
+          MinTTL: 0
+          AllowedMethods:
+          - HEAD
+          - GET
+          CachedMethods:
+          - HEAD
+          - GET
+          ForwardedValues:
+            Cookies:
+              Forward: none
+        Logging:
+          Bucket: thebrainscape.com.logs.s3.amazonaws.com
+          IncludeCookies: true
+          Prefix: cdn/
+        Origins:
+        - DomainName: thebrainscape.com.s3.amazonaws.com
+          Id: S3-thebrainscape.com
+          S3OriginConfig: {}
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+            Locations: []
+        ViewerCertificate:
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.1_2016
+  s3thebrainscapecom:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      VersioningConfiguration:
+        Status: Enabled
+  s3policythebrainscapecom:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: s3thebrainscapecom
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: Policy1523686993118
+        Statement:
+        - Sid: Stmt1523686991389
+          Effect: Allow
+          Principal: "*"
+          Action: s3:GetObject
+          Resource:
+            Fn::Join:
+            - ''
+            - - 'arn:aws:s3:::'
+              - thebrainscape
+              - ".com/*"
+Description: ''

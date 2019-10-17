@@ -1,0 +1,49 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  zonethebrainscapecom:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: thebrainscape.com.
+      HostedZoneConfig:
+        Comment: Mike's website
+
+  s3thebrainscapecom:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      VersioningConfiguration:
+        Status: Enabled
+      BucketName: thebrainscape.com
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+          - Authorization
+          MaxAge: '300'
+          AllowedMethods:
+          - GET
+          Id: AllowHTTP
+          AllowedOrigins:
+          - '*'
+          
+  s3policythebrainscapecom:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: s3thebrainscapecom
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: Policy1523686993118
+        Statement:
+        - Sid: Stmt1523686991389
+          Effect: Allow
+          Principal: "*"
+          Action: s3:GetObject
+          Resource:
+            Fn::Join:
+            - ''
+            - - 'arn:aws:s3:::'
+              - thebrainscape
+              - ".com/*"
+Description: ''
+
