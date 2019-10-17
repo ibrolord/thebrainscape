@@ -8,13 +8,6 @@ Resources:
       HostedZoneConfig:
         Comment: Mike's website
   
-  vpc7038fc0a:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 172.31.0.0/16
-      InstanceTenancy: default
-      EnableDnsSupport: 'true'
-      EnableDnsHostnames: 'true'
   distd34nak86sb33w9cloudfrontnet:
     Type: AWS::CloudFront::Distribution
     Properties:

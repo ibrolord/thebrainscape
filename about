@@ -61,7 +61,7 @@
         </nav>
         <div class="overlay">
             <nav class="navbar navbar-expand-lg navbar-light aboutC">
-                <a class="navbar-brand active " href="index ">GIC</a>
+                <a class="navbar-brand active " href="index ">TBS</a>
                 <button class="toggleNav cross">
                     <?xml version='1.0' encoding='utf-8'?>
                     <?xml version="1.0 " encoding="iso-8859-1 "?>
@@ -222,11 +222,11 @@
             <ul>
                 <li>
                     <img src="images/mail.svg" alt="" class="contact-image">
-                    <p>charles.ahanonu@goshenconsulting.ca</p>
+                    <p>majibaye@thebrainscape.com</p>
                 </li>
                 <li>
                     <img src="images/phone.svg" alt="" class="contact-image">
-                    <p>+1 (745) 466-1000</p>
+                    <p>+1 (905) 324-7862</p>
                 </li>
                 <li>
                     <img src="images/pin.svg" alt="" class="contact-image">

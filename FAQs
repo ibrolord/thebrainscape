@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Charles Consultancy: About Us</title>
+    <title>The Brain Scape: About Us</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -20,7 +20,7 @@
     <![endif]-->
     <section class="faq-nav">
         <nav class="navbar navbar-expand-lg navbar-light Faqs">
-            <a class="navbar-brand active" href="index">GIC</a>
+            <a class="navbar-brand active" href="index">TBS</a>
             <button class="toggleNav">
                 <?xml version='1.0' encoding='utf-8'?>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
@@ -398,11 +398,11 @@
                 <ul>
                     <li>
                         <img src="images/mail.svg" alt="" class="contact-image">
-                        <span>cahanonu@goshenconsulting.ca</span>
+                        <span>majibaye@thebrainscape.com</span>
                     </li>
                     <li>
                         <img src="images/phone.svg" alt="" class="contact-image">
-                        <span>+1 (745) 466-1000</span>
+                        <span>+1 (905) 324-7862</span>
                     </li>
                     <li>
                         <img src="images/pin.svg" alt="" class="contact-image">
@@ -438,11 +438,11 @@
             <ul>
                 <li>
                     <img src="images/mail.svg" alt="" class="contact-image">
-                    <p>charles.ahanonu@goshenconsulting.ca</p>
+                    <p>majibaye@thebrainscape.com</p>
                 </li>
                 <li>
                     <img src="images/phone.svg" alt="" class="contact-image">
-                    <p>+1 (745) 466-1000</p>
+                    <p>+1 (905) 324-7862</p>
                 </li>
                 <li>
                     <img src="images/pin.svg" alt="" class="contact-image">
