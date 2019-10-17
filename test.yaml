@@ -14,7 +14,17 @@ Resources:
       AccessControl: PublicRead
       VersioningConfiguration:
         Status: Enabled
+      WebsiteConfiguration: 
+        ErrorDocument: error
+        IndexDocument: Index
       BucketName: thebrainscape.com
+      ReplicationConfiguration: 
+        Role: !GetAtt ReplicationRole.Arn
+        Rules:
+        - Prefix: ''
+          Status: Enabled
+          Destination:
+            Bucket: !Ref s3thebrainscapecomArn
       CorsConfiguration:
         CorsRules:
         - AllowedHeaders:
@@ -25,7 +35,7 @@ Resources:
           Id: AllowHTTP
           AllowedOrigins:
           - '*'
-          
+
   s3policythebrainscapecom:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -45,5 +55,26 @@ Resources:
             - - 'arn:aws:s3:::'
               - thebrainscape
               - ".com/*"
+
+  ReplicationRole: 
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal: 
+            Service: s3.amazonaws.com
+          Action: sts:AssumeRole
+      Path: /
+      Policies: 
+      - PolicyName: Allow
+        PolicyDocument: 
+          Statement:
+          - Effect: Allow
+            Action: 
+            - s3:*
+            Resource:
+            - '*'
+
 Description: ''
 
